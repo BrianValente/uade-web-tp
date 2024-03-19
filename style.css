@@ -1,0 +1,49 @@
+html {
+    background-color: #F0DCD7;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+body > * {
+    color: white;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+    align-items: center;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0));
+    text-align: center;
+}
+
+header > h1 {
+    padding-top: 2rem;
+    background-image: linear-gradient(#e575eb, #9e50a2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+body > article {
+    flex: 1;
+}
+
+footer {
+    max-width: 700px;
+    background-image: url('./assets/img/footer.webp');
+    background-size: cover;
+    mask-image: radial-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 50%);
+    width: 100%;
+    transform: translateY(50%);
+    aspect-ratio: 16 / 9;
+}
