@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Montagu+Slab:opsz,wght@16..144,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.11/dayjs.min.js" integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.11/locale/es.min.js" integrity="sha512-zXA0Z+C+U5x6VWKPRCOQUC+5uPvpCEUM5Cs40sJXPO6Jr9Bd+j+h94eMMDcZOu5bSITZJLD83kW37oZbxGY6PA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.11/plugin/duration.min.js" integrity="sha512-t0b2NyBypSms8nA81pldWo0mXbfMotsdYgvs4awmbi/GU/25YBNLnXj+I9DAMV7WGZ8+z8wtRolX7zSF2LN8UQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.11/plugin/relativeTime.min.js" integrity="sha512-MVzDPmm7QZ8PhEiqJXKz/zw2HJuv61waxb8XXuZMMs9b+an3LoqOqhOEt5Nq3LY1e4Ipbbd/e+AWgERdHlVgaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.11/plugin/calendar.min.js" integrity="sha512-iGrW6JrYT5DGfpMKEQwVVmB4ZT4zVcw62Y/Ax6U3tSAei9FkgZVz0zDPwmaSQemQEXtYn4FHBVIDxXGuTXiCsw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="script.js"></script>
 </head>
 <body>
@@ -120,6 +125,10 @@
                 <textarea name="message" maxlength="140"></textarea>
             </label>
             <button type="submit">Enviar</button>
+            <div id="success">
+                <div class="checkmark"></div>
+                <h3>¡Gracias por tu mensaje! Nos pondremos en contacto contigo a la brevedad.</h3>
+            </div>
         </form>
         <div class="card">
             <div class="data">
