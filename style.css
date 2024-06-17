@@ -18,9 +18,14 @@ body {
     --box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.05);
     --color-background: #F1E5D9;
     --color-card-background: white;
+    --color-dark-card-background: #3e372f;
+    --color-text-primary-rgb: 82, 73, 62;
     --color-text-primary: #52493E;
+    --color-text-secondary-rgb: 149, 120, 104;
     --color-text-secondary: #957878;
+    --color-text-tertiary-rgb: 126, 115, 103;
     --color-text-tertiary: #7E7367;
+    --color-text-title-rgb: 166, 152, 136;
     --color-text-title: #A69888;
     --color-divider: #D9D9D9;
 }
@@ -67,7 +72,8 @@ a.button:hover {
     border-bottom-color: var(--color-text-primary);
 }
 
-h1.title {
+h1.title,
+h2.title {
     color: var(--color-text-title);
     font-family: "Josefin Slab";
     font-size: 10rem;
@@ -75,6 +81,14 @@ h1.title {
     text-transform: uppercase;
     padding-bottom: 1rem;
     border-bottom: solid 1rem color-mix(in srgb, var(--color-text-title), transparent 70%);
+    align-self: center;
+}
+
+h2.title {
+    font-size: 5rem;
+    margin-top: 0;
+    border-bottom-width: 0.5rem;
+    place-self: center;
 }
 
 /*
@@ -285,6 +299,194 @@ section#contact {
     max-width: none;
 }
 
+section#contact form#contact-form {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
+    align-items: stretch;
+    --input-background-color: rgba(var(--color-text-primary-rgb), .7);
+
+    background-color: var(--color-dark-card-background);
+    border: solid 1px var(--color-text-primary);
+    outline: solid 3rem var(--color-dark-card-background);
+    padding: 8rem;
+    margin: 8rem 0;
+    gap: 2rem;
+
+    & > * {
+        grid-column: span 2;
+    }
+
+    #name-input-wrapper {
+        grid-column: 1;
+    }
+
+    #service-input-wrapper {
+        grid-column: 2;
+    }
+
+    .input,
+    .radio-selector-wrapper,
+    button {
+        border: solid 1px var(--input-background-color);
+        background-color: transparent;
+        border-radius: 1rem;
+        transition: ease-in all .1s;
+
+        span,
+        label {
+            flex-direction: row;
+            gap: 2rem;
+            padding: 3rem;
+            font-size: 3rem;
+            color: var(--color-text-title-rgb);
+
+            img {
+                display: inline;
+                width: 4rem;
+                height: 4rem;
+                filter: brightness(1000%);
+                color: white;
+            }
+        }
+
+        input,
+        textarea,
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            font-size: 4rem;
+
+            resize: none;
+
+            background-color: transparent;
+            border: none;
+            outline: none;
+            transition: ease-in background-color .1s;
+            color: white;
+            padding: 0 3rem 3rem 3rem;
+
+            &:required:invalid {
+                color: rgba(var(--color-text-title-rgb), .5);
+            }
+
+            &::placeholder {
+                color: var(--color-divider);
+            }
+        }
+
+        option[value=""][disabled] {
+            display: none;
+        }
+
+        &:focus-within {
+            background-color: var(--input-background-color);
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        cursor: pointer;
+
+        padding: 3rem;
+        justify-content: center;
+        align-items: center;
+
+        color: white;
+    }
+
+    .radio-selector {
+        flex-direction: row;
+        overflow: hidden;
+        gap: 1px;
+
+        input {
+            display: none;
+        }
+    
+        input:checked+label {
+            opacity: 1;
+            -background-color: var(--input-background-color);
+        }
+    
+        label {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: ease-in all .1s;
+
+            color: white;
+
+            opacity: .4;
+
+            font-weight: bold;
+            font-size: 3rem;
+
+            cursor: pointer;
+            padding: 2rem 4rem 3rem 4rem;
+    
+            &:first-of-type {
+                
+            }
+    
+            &:nth-of-type(2) {
+                
+            }
+        }
+    }
+
+    #success {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 4rem;
+
+        background-color: var(--color-dark-card-background);
+        pointer-events: none;
+        opacity: 0;
+        transition: ease-in opacity .3s;
+
+        h3 {
+            text-align: center;
+        }
+
+        div.checkmark {
+            object-fit: contain;
+            width: 150px;
+            height: 150px;
+            mask-image: url('./assets/icons/check-circle-outline.svg');
+            background-color: var(--color-text-title);
+        }
+
+        &.show {
+            pointer-events: all;
+            opacity: 1;
+        }
+    }
+}
+
 section#contact .card {
     max-width: var(--content-width-max);
     flex-direction: row;
@@ -437,6 +639,10 @@ footer > div {
     /*
      * Contact section
      */
+
+    section#contact form#contact-form {
+        display: flex;
+    }
 
     section#contact .card {
         flex-direction: column;
